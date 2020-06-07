@@ -1,7 +1,7 @@
 <template>
   <section class="navigation">
     <div class="navigation-brand">
-      <img height="160px" src="" alt="logo">
+      <img height="160px" src="../assets/basicLogo.png" alt="logo">
     </div>
     <div class="navigation-menu">
       <ul class="navigation-menu-list">

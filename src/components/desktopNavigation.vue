@@ -1,12 +1,15 @@
 <template>
     <section class="navigation">
         <div class="navigation-logo">
-            <img src="" alt="my-logo">
+            <img src="../assets/basicLogo.png" alt="my-logo">
         </div>
         <div class="navigation-menu">
             <ul class="navigation-menu-list">
                 <li class="navigation-list-item">About me</li>
-                <li class="navigation-list-item">Github</li>
+                <li class="navigation-list-item">Project</li>
+                <li class="navigation-list-item">Blog</li>
+                <li onclick="location.href = 'https://github.com/hkuwana';" class="navigation-list-item">Github</li>
+
             </ul>
         </div>
     </section>
@@ -29,8 +32,9 @@ export default {
     flex-direction: column
     align-items: center
     width: 20vw
-    .navigation-logo
-        margin: 100px
+    .my-logo
+        margin: 200px
+        height: auto
     .navigation-menu
         color: white
 

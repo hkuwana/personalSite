@@ -4,17 +4,16 @@
       <img height="200px" src="../assets/selfPortrait.jpeg" alt="self-photo" class="self-photo">
       <div class="title-text-content">
         <p>About me</p>
-        <br>
-        <h2>Hiroyuki Kuwana</h2>
+        <h2>Hiroyuki (Hiro) Kuwana</h2>
       </div>
     </div>
     <div class="main-content">
-      <p>I'm working on learning front-end development during COVID-19. This is the first iteration of my site, and hope all will go well! 
+      <p>I'm working on learning front-end development during COVID-19. This is the first iteration of my site, and though I know it looks as though this was designed when smartphones didn't exist, I will be working on it!
       </p>
       <table width = "100%">
         <tr>
-          <th>Requirement</th>
-          <th>Solution</th>
+          <th>Projects/Work</th>
+          <th>Description</th>
         </tr>
         <tr>
           <td>Front-end</td>
@@ -33,8 +32,6 @@
           <td>Add hobbies here</td>
         </tr>
       </table>
-      <p>Add here about what I like to do </p>
-      <br>
       <p> One of the largest thoughts on my mind is how we interact as humans. My hope is that we can become better at working on compassion and understanding each of our expereinces. 
       </p>
     </div>
@@ -55,13 +52,14 @@
       background: #222
       border-radius: 10px
       .self-photo
-        border: 1px solid rgba(255,255, 255, 0.4)
+        border: 1px solid 
+        rgba(255,255, 255, 0.4)
         border-radius: 50%
         margin: 0 3em
     .title-text-content
       p 
-        marrgin-bottom: 0
-        rgb(210,210,210)
+        margin-bottom: 0
+        rgba(200,200,200,0)
       h2 
         margin-top: 0
   .main-content
