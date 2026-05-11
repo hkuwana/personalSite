@@ -23,7 +23,7 @@
 		<div class="hero-content">
 			<div class="hero-badge">
 				<span class="status-dot"></span>
-				Available for new projects
+				Building since 2018, open to new work
 			</div>
 
 			<h1 class="hero-title">
@@ -32,8 +32,8 @@
 			</h1>
 
 			<p class="hero-subtitle">
-				Full Stack Developer crafting <em>elegant solutions</em> with modern web technologies.
-				I transform complex problems into intuitive, performant applications.
+				<em>AI-fluent design</em> that augments you, not another chatbot. I build products in
+				TypeScript, Svelte, Python, and LLM systems, treating the model as a teammate, not a feature.
 			</p>
 
 			<div class="hero-cta">
@@ -76,12 +76,12 @@
 				<div class="image-border"></div>
 			</div>
 			<div class="floating-card card-1">
-				<span class="card-icon">🎓</span>
-				<span class="card-text">Brown '21</span>
+				<span class="card-icon">↳</span>
+				<span class="card-text">Shipping since 2018</span>
 			</div>
 			<div class="floating-card card-2">
-				<span class="card-icon">💻</span>
-				<span class="card-text">5+ Projects</span>
+				<span class="card-icon">◈</span>
+				<span class="card-text">LLMs · TS · Svelte · Py</span>
 			</div>
 		</div>
 	</div>

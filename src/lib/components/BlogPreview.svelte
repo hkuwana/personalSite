@@ -39,10 +39,11 @@
 	<div class="container">
 		<div class="blog-header">
 			<div class="header-content">
-				<span class="section-label">Blog</span>
-				<h2 class="section-title">Latest Articles</h2>
+				<span class="section-label">Writing</span>
+				<h2 class="section-title">Notes from the workbench</h2>
 				<p class="section-subtitle">
-					Thoughts, tutorials, and insights on web development, technology, and beyond.
+					Short pieces on building with LLMs, the tools I use daily, and what stops being
+					true the more you ship.
 				</p>
 			</div>
 			<a href="/blog" class="btn btn-secondary view-all">

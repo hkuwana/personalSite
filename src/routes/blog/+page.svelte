@@ -21,19 +21,16 @@
 
 <svelte:head>
 	<title>Blog | Hiroyuki Kuwana</title>
-	<meta
-		name="description"
-		content="Articles about web development, AI workflows, and software engineering by Hiroyuki Kuwana."
-	/>
+	<meta name="description" content="Short pieces on building with LLMs, the tools I use daily, and what stops being true the more you ship — by Hiroyuki Kuwana." />
 </svelte:head>
 
 <section class="blog-page">
 	<div class="container">
 		<header class="blog-header">
-			<span class="section-label">Blog</span>
-			<h1>Thoughts & Tutorials</h1>
+			<span class="section-label">Writing</span>
+			<h1>Notes from the workbench</h1>
 			<p class="subtitle">
-				Exploring web development, AI workflows, and the technologies that power the modern web.
+				Short pieces on building with LLMs, the tools I use daily.
 			</p>
 		</header>
 

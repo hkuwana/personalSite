@@ -48,11 +48,11 @@
 <section id="projects" class="projects section">
 	<div class="container">
 		<div class="projects-header">
-			<span class="section-label">My Work</span>
-			<h2 class="section-title">Featured Projects</h2>
+			<span class="section-label">Work</span>
+			<h2 class="section-title">Selected projects</h2>
 			<p class="section-subtitle">
-				A selection of projects that showcase my skills in full-stack development,
-				from concept to deployment.
+				Things I shipped end-to-end. Each one solves a real problem; AI is a means, not the
+				marketing.
 			</p>
 		</div>
 

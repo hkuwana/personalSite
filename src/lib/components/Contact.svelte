@@ -50,19 +50,19 @@
 	<div class="container">
 		<div class="contact-header">
 			<span class="section-label">Contact</span>
-			<h2 class="section-title">Let's Work Together</h2>
+			<h2 class="section-title">Want to build something?</h2>
 			<p class="section-subtitle">
-				Have a project in mind or just want to chat? I'm always excited to hear about
-				new opportunities and interesting ideas.
+				If you have a product that should think with you instead of at you, I want to hear
+				about it. Short notes welcome.
 			</p>
 		</div>
 
 		<div class="contact-grid">
 			<div class="contact-info">
-				<h3>Get in Touch</h3>
+				<h3>Reach out</h3>
 				<p class="info-text">
-					Whether you're looking for a developer to bring your vision to life,
-					have questions about my work, or just want to say hello — my inbox is always open.
+					Hiring, collaborating, or just want to compare notes on AI-fluent product work?
+					Email is the fastest path. I read every message.
 				</p>
 
 				<div class="info-items">
