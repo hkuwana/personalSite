@@ -1,54 +1,52 @@
 <script>
 	const skills = [
 		{
-			category: 'Frontend',
-			items: ['Svelte/SvelteKit', 'Vue.js', 'React', 'TypeScript', 'HTML/CSS', 'Tailwind']
+			category: 'AI & LLMs',
+			items: ['Claude / GPT', 'RAG pipelines', 'Tool-use agents', 'Evals', 'Prompt design', 'Streaming UX']
+		},
+		{
+			category: 'TypeScript & Svelte',
+			items: ['SvelteKit 5', 'TypeScript', 'Vite', 'Tailwind']
 		},
 		{
 			category: 'Backend',
-			items: ['Python', 'Node.js', 'Firebase', 'PostgreSQL', 'REST APIs', 'GraphQL']
-		},
-		{
-			category: 'Tools',
-			items: ['Git', 'Docker', 'VS Code', 'Figma', 'Linux', 'CI/CD']
+			items: ['Python', 'Node.js', 'Supabase', 'PostgreSQL', 'REST APIs', 'GraphQL', 'Edge runtimes']
 		}
 	];
 
 	const stats = [
-		{ value: '5+', label: 'Projects Completed' },
-		{ value: '3+', label: 'Years Experience' },
-		{ value: '100%', label: 'Client Satisfaction' }
+		{ value: '2018', label: 'Shipping since' },
+		{ value: 'TS · Py', label: 'Daily stack' },
+		{ value: 'LLM-native', label: 'How I build' }
 	];
 </script>
 
 <section id="about" class="about section">
 	<div class="container">
 		<div class="about-header">
-			<span class="section-label">About Me</span>
-			<h2 class="section-title">Passionate Developer,<br/>Creative Problem Solver</h2>
+			<span class="section-label">About</span>
+			<h2 class="section-title">Engineer who designs.<br/>Designer who ships.</h2>
 			<p class="section-subtitle">
-				I believe in building software that makes a difference — combining technical excellence
-				with user-centered design.
+				I build software that augments people instead of replacing their judgment. Real
+				interfaces, real systems, real outcomes.
 			</p>
 		</div>
 
 		<div class="about-grid">
 			<div class="about-story card">
-				<h3>My Journey</h3>
+				<h3>How I work</h3>
 				<p>
-					I'm a Brown University graduate ('21) who discovered my passion for web development
-					during a time when the world was changing rapidly. What started as curiosity about
-					how websites work evolved into a deep commitment to crafting exceptional digital experiences.
+					I started shipping code in 2018 as an intern, kept shipping through Brown ('21),
+					and now build product end-to-end: research, design, frontend, API, infra.
 				</p>
 				<p>
-					I approach every project with compassion and understanding, believing that the best
-					solutions come from truly understanding the people who will use them. My philosophy
-					is simple: technology should empower, not complicate.
+					LLMs entered my stack the day they were useful. I treat them like a teammate with
+					blind spots: useful for grunt work, terrible at judgment, and the best leverage I
+					have for prototyping new interfaces before I commit to them.
 				</p>
 				<p>
-					When I'm not coding, you'll find me exploring new technologies, contributing to
-					open-source projects, or enjoying the outdoors. I'm always eager to learn and
-					take on new challenges.
+					I care about the seam between people and software. The model should fade into
+					the product. The product should fade into the work. That is the bar.
 				</p>
 			</div>
 

@@ -23,7 +23,7 @@
 					<span class="logo-text">HK</span>
 					<span class="logo-dot"></span>
 				</a>
-				<p class="tagline">Building elegant solutions with modern web technologies.</p>
+				<p class="tagline">AI-fluent product builder. Shipping since 2018.</p>
 			</div>
 
 			<div class="footer-links">
