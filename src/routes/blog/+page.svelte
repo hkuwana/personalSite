@@ -1,4 +1,9 @@
 <script lang="ts">
+	import { getArticles, getAllTags } from '$lib/articles';
+
+	const posts = getArticles();
+	const allTags = getAllTags();
+
 	function formatDate(dateStr: string) {
 		return new Date(dateStr).toLocaleDateString('en-US', {
 			year: 'numeric',
@@ -7,63 +12,10 @@
 		});
 	}
 
-	// Static blog posts for now - can be moved to a CMS or markdown files later
-	const posts = [
-		{
-			slug: 'getting-started-with-svelte-5',
-			title: 'Getting Started with Svelte 5: A Complete Guide',
-			excerpt: 'Explore the new features in Svelte 5, including runes, fine-grained reactivity, and improved performance. This comprehensive guide will help you understand and leverage the power of Svelte 5 in your projects.',
-			date: '2024-01-15',
-			readTime: '8 min read',
-			tags: ['Svelte', 'JavaScript', 'Tutorial'],
-			featured: true
-		},
-		{
-			slug: 'building-better-apis',
-			title: 'Building Better APIs: Best Practices for RESTful Design',
-			excerpt: 'Learn how to design clean, intuitive, and scalable REST APIs that developers love to use. We cover naming conventions, versioning, error handling, and more.',
-			date: '2024-01-08',
-			readTime: '6 min read',
-			tags: ['API', 'Backend', 'Best Practices'],
-			featured: true
-		},
-		{
-			slug: 'the-power-of-typescript',
-			title: 'The Power of TypeScript in Large-Scale Applications',
-			excerpt: 'Why TypeScript is essential for building maintainable applications and how to get the most out of it. Discover tips for better type safety and developer experience.',
-			date: '2024-01-01',
-			readTime: '5 min read',
-			tags: ['TypeScript', 'JavaScript'],
-			featured: false
-		},
-		{
-			slug: 'modern-css-techniques',
-			title: 'Modern CSS Techniques Every Developer Should Know',
-			excerpt: 'From CSS Grid and Flexbox to custom properties and container queries, explore the modern CSS features that make building responsive layouts easier than ever.',
-			date: '2023-12-20',
-			readTime: '7 min read',
-			tags: ['CSS', 'Frontend', 'Design'],
-			featured: false
-		},
-		{
-			slug: 'web-performance-optimization',
-			title: 'Web Performance Optimization: A Practical Guide',
-			excerpt: 'Speed matters. Learn practical techniques to optimize your web applications for better performance, from lazy loading to code splitting and beyond.',
-			date: '2023-12-10',
-			readTime: '9 min read',
-			tags: ['Performance', 'Web Development'],
-			featured: false
-		}
-	];
-
 	let selectedTag = $state<string | null>(null);
 
-	const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
-
 	const filteredPosts = $derived(
-		selectedTag
-			? posts.filter(p => p.tags.includes(selectedTag))
-			: posts
+		selectedTag ? posts.filter((p) => p.tags.includes(selectedTag!)) : posts
 	);
 </script>
 
@@ -78,8 +30,7 @@
 			<span class="section-label">Writing</span>
 			<h1>Notes from the workbench</h1>
 			<p class="subtitle">
-				Short pieces on building with LLMs, the tools I use daily, and what stops being true
-				the more you ship.
+				Short pieces on building with LLMs, the tools I use daily.
 			</p>
 		</header>
 
@@ -87,7 +38,7 @@
 			<button
 				class="filter-tag"
 				class:active={selectedTag === null}
-				onclick={() => selectedTag = null}
+				onclick={() => (selectedTag = null)}
 			>
 				All Posts
 			</button>
@@ -95,7 +46,7 @@
 				<button
 					class="filter-tag"
 					class:active={selectedTag === tag}
-					onclick={() => selectedTag = tag}
+					onclick={() => (selectedTag = tag)}
 				>
 					{tag}
 				</button>
@@ -103,7 +54,7 @@
 		</div>
 
 		<div class="posts-list">
-			{#each filteredPosts as post, i}
+			{#each filteredPosts as post, i (post.slug)}
 				<article class="post-item" style="animation-delay: {i * 0.1}s">
 					<div class="post-content">
 						<div class="post-meta">
@@ -124,18 +75,22 @@
 						<div class="post-footer">
 							<div class="post-tags">
 								{#each post.tags as tag}
-									<button
-										class="tag"
-										onclick={() => selectedTag = tag}
-									>
+									<button class="tag" onclick={() => (selectedTag = tag)}>
 										{tag}
 									</button>
 								{/each}
 							</div>
 							<a href="/blog/{post.slug}" class="read-more">
 								Read Article
-								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-									<path d="M5 12h14M12 5l7 7-7 7"/>
+								<svg
+									width="14"
+									height="14"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path d="M5 12h14M12 5l7 7-7 7" />
 								</svg>
 							</a>
 						</div>
@@ -147,7 +102,7 @@
 		{#if filteredPosts.length === 0}
 			<div class="no-posts">
 				<p>No posts found with the selected tag.</p>
-				<button class="btn btn-secondary" onclick={() => selectedTag = null}>
+				<button class="btn btn-secondary" onclick={() => (selectedTag = null)}>
 					View All Posts
 				</button>
 			</div>
