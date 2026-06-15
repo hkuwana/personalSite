@@ -4,13 +4,13 @@
 
 	const navItems = [
 		{ label: 'About', href: '#about' },
-		{ label: 'Projects', href: '#projects' },
+		{ label: 'Work', href: '#projects' },
 		{ label: 'Blog', href: '/blog' },
 		{ label: 'Contact', href: '#contact' }
 	];
 
 	function handleScroll() {
-		scrolled = window.scrollY > 50;
+		scrolled = window.scrollY > 20;
 	}
 
 	function toggleMobileMenu() {
@@ -31,21 +31,16 @@
 
 <nav class="nav" class:scrolled>
 	<div class="nav-container">
-		<a href="/" class="logo">
-			<span class="logo-text">HK</span>
-			<span class="logo-dot"></span>
-		</a>
+		<a href="/" class="logo">Hiroyuki Kuwana</a>
 
 		<div class="nav-links desktop">
 			{#each navItems as item}
 				<a href={item.href} class="nav-link">{item.label}</a>
 			{/each}
-			<a href="#contact" class="btn btn-primary nav-cta">Let's Talk</a>
 		</div>
 
 		<button class="mobile-toggle" onclick={toggleMobileMenu} aria-label="Toggle menu">
 			<span class="hamburger" class:open={mobileMenuOpen}>
-				<span></span>
 				<span></span>
 				<span></span>
 			</span>
@@ -53,22 +48,12 @@
 	</div>
 
 	{#if mobileMenuOpen}
-		<div class="mobile-menu" class:open={mobileMenuOpen}>
-			<div class="mobile-menu-content">
-				{#each navItems as item, i}
-					<a
-						href={item.href}
-						class="mobile-nav-link"
-						onclick={closeMobileMenu}
-						style="animation-delay: {i * 0.1}s"
-					>
-						{item.label}
-					</a>
-				{/each}
-				<a href="#contact" class="btn btn-primary mobile-cta" onclick={closeMobileMenu}>
-					Let's Talk
+		<div class="mobile-menu">
+			{#each navItems as item}
+				<a href={item.href} class="mobile-nav-link" onclick={closeMobileMenu}>
+					{item.label}
 				</a>
-			</div>
+			{/each}
 		</div>
 	{/if}
 </nav>
@@ -80,16 +65,14 @@
 		left: 0;
 		right: 0;
 		z-index: 1000;
-		padding: var(--spacing-md) 0;
+		padding: var(--spacing-lg) 0;
 		transition: all var(--transition-base);
-		background: transparent;
+		background: var(--color-bg);
 	}
 
 	.nav.scrolled {
-		background: rgba(10, 10, 15, 0.9);
-		backdrop-filter: blur(20px);
-		border-bottom: 1px solid var(--color-border);
-		padding: var(--spacing-sm) 0;
+		padding: var(--spacing-md) 0;
+		box-shadow: var(--shadow-sm);
 	}
 
 	.nav-container {
@@ -102,66 +85,30 @@
 	}
 
 	.logo {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-xs);
-		font-size: var(--font-size-xl);
-		font-weight: 700;
-		color: var(--color-text-primary);
-		text-decoration: none;
+		font-size: var(--font-size-base);
+		font-weight: 600;
+		color: var(--color-text);
+		letter-spacing: -0.01em;
 	}
 
-	.logo-text {
-		background: var(--gradient-accent);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-	}
-
-	.logo-dot {
-		width: 8px;
-		height: 8px;
-		background: var(--color-accent);
-		border-radius: 50%;
-		animation: pulse 2s infinite;
+	.logo:hover {
+		color: var(--color-text);
 	}
 
 	.nav-links {
 		display: flex;
 		align-items: center;
-		gap: var(--spacing-xl);
+		gap: var(--spacing-2xl);
 	}
 
 	.nav-link {
 		color: var(--color-text-secondary);
 		font-size: var(--font-size-sm);
-		font-weight: 500;
 		transition: color var(--transition-fast);
-		position: relative;
-	}
-
-	.nav-link::after {
-		content: '';
-		position: absolute;
-		bottom: -4px;
-		left: 0;
-		width: 0;
-		height: 2px;
-		background: var(--gradient-accent);
-		transition: width var(--transition-base);
 	}
 
 	.nav-link:hover {
-		color: var(--color-text-primary);
-	}
-
-	.nav-link:hover::after {
-		width: 100%;
-	}
-
-	.nav-cta {
-		padding: var(--spacing-sm) var(--spacing-lg);
-		font-size: var(--font-size-sm);
+		color: var(--color-text);
 	}
 
 	.mobile-toggle {
@@ -175,29 +122,24 @@
 	.hamburger {
 		display: flex;
 		flex-direction: column;
-		gap: 5px;
-		width: 24px;
+		gap: 6px;
+		width: 20px;
 	}
 
 	.hamburger span {
 		display: block;
 		width: 100%;
-		height: 2px;
-		background: var(--color-text-primary);
+		height: 1.5px;
+		background: var(--color-text);
 		transition: all var(--transition-base);
-		transform-origin: center;
 	}
 
-	.hamburger.open span:nth-child(1) {
-		transform: translateY(7px) rotate(45deg);
+	.hamburger.open span:first-child {
+		transform: translateY(3.75px) rotate(45deg);
 	}
 
-	.hamburger.open span:nth-child(2) {
-		opacity: 0;
-	}
-
-	.hamburger.open span:nth-child(3) {
-		transform: translateY(-7px) rotate(-45deg);
+	.hamburger.open span:last-child {
+		transform: translateY(-3.75px) rotate(-45deg);
 	}
 
 	.mobile-menu {
@@ -206,39 +148,22 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: var(--color-bg-primary);
-		z-index: 999;
-		opacity: 0;
-		animation: fadeIn 0.3s forwards;
-	}
-
-	.mobile-menu-content {
+		background: var(--color-bg);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		height: 100%;
 		gap: var(--spacing-xl);
 	}
 
 	.mobile-nav-link {
-		font-size: var(--font-size-2xl);
-		font-weight: 600;
-		color: var(--color-text-primary);
-		opacity: 0;
-		animation: fadeInUp 0.5s forwards;
-	}
-
-	.mobile-cta {
-		margin-top: var(--spacing-lg);
-		opacity: 0;
-		animation: fadeInUp 0.5s forwards;
-		animation-delay: 0.4s;
+		font-size: var(--font-size-xl);
+		color: var(--color-text);
 	}
 
 	@media (max-width: 768px) {
 		.nav-container {
-			padding: 0 var(--spacing-md);
+			padding: 0 var(--spacing-lg);
 		}
 
 		.desktop {

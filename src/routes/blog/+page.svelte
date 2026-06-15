@@ -6,9 +6,9 @@
 
 	function formatDate(dateStr: string) {
 		return new Date(dateStr).toLocaleDateString('en-US', {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric'
+			month: 'short',
+			day: 'numeric',
+			year: 'numeric'
 		});
 	}
 
@@ -20,17 +20,16 @@
 </script>
 
 <svelte:head>
-	<title>Blog | Hiroyuki Kuwana</title>
-	<meta name="description" content="Short pieces on building with LLMs, the tools I use daily, and what stops being true the more you ship — by Hiroyuki Kuwana." />
+	<title>Writing | Hiroyuki Kuwana</title>
+	<meta name="description" content="Notes on building with LLMs, the tools I use daily, and what stops being true the more you ship." />
 </svelte:head>
 
 <section class="blog-page">
 	<div class="container">
 		<header class="blog-header">
-			<span class="section-label">Writing</span>
-			<h1>Notes from the workbench</h1>
+			<h1>Writing</h1>
 			<p class="subtitle">
-				Short pieces on building with LLMs, the tools I use daily.
+				Notes on building with LLMs and what stops being true the more you ship.
 			</p>
 		</header>
 
@@ -40,7 +39,7 @@
 				class:active={selectedTag === null}
 				onclick={() => (selectedTag = null)}
 			>
-				All Posts
+				All
 			</button>
 			{#each allTags as tag}
 				<button
@@ -54,56 +53,25 @@
 		</div>
 
 		<div class="posts-list">
-			{#each filteredPosts as post, i (post.slug)}
-				<article class="post-item" style="animation-delay: {i * 0.1}s">
+			{#each filteredPosts as post (post.slug)}
+				<a href="/blog/{post.slug}" class="post-item">
 					<div class="post-content">
-						<div class="post-meta">
-							<time datetime={post.date}>{formatDate(post.date)}</time>
-							<span class="separator">•</span>
-							<span>{post.readTime}</span>
-							{#if post.featured}
-								<span class="featured-badge">Featured</span>
-							{/if}
-						</div>
-
-						<h2 class="post-title">
-							<a href="/blog/{post.slug}">{post.title}</a>
-						</h2>
-
+						<h2 class="post-title">{post.title}</h2>
 						<p class="post-excerpt">{post.excerpt}</p>
-
-						<div class="post-footer">
-							<div class="post-tags">
-								{#each post.tags as tag}
-									<button class="tag" onclick={() => (selectedTag = tag)}>
-										{tag}
-									</button>
-								{/each}
-							</div>
-							<a href="/blog/{post.slug}" class="read-more">
-								Read Article
-								<svg
-									width="14"
-									height="14"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-								>
-									<path d="M5 12h14M12 5l7 7-7 7" />
-								</svg>
-							</a>
-						</div>
 					</div>
-				</article>
+					<div class="post-meta">
+						<time datetime={post.date}>{formatDate(post.date)}</time>
+						<span class="read-time">{post.readTime}</span>
+					</div>
+				</a>
 			{/each}
 		</div>
 
 		{#if filteredPosts.length === 0}
 			<div class="no-posts">
-				<p>No posts found with the selected tag.</p>
+				<p>No posts found.</p>
 				<button class="btn btn-secondary" onclick={() => (selectedTag = null)}>
-					View All Posts
+					View All
 				</button>
 			</div>
 		{/if}
@@ -117,182 +85,117 @@
 		min-height: 100vh;
 	}
 
+	.container {
+		max-width: 720px;
+	}
+
 	.blog-header {
-		text-align: center;
 		margin-bottom: var(--spacing-3xl);
 	}
 
-	.section-label {
-		display: inline-block;
-		padding: var(--spacing-sm) var(--spacing-md);
-		background: var(--color-bg-tertiary);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-full);
-		font-size: var(--font-size-sm);
-		color: var(--color-accent-light);
-		margin-bottom: var(--spacing-lg);
-	}
-
 	.blog-header h1 {
-		font-size: var(--font-size-5xl);
-		margin-bottom: var(--spacing-lg);
-		background: var(--gradient-accent);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		font-size: var(--font-size-4xl);
+		font-weight: 600;
+		margin-bottom: var(--spacing-md);
 	}
 
 	.subtitle {
 		font-size: var(--font-size-lg);
 		color: var(--color-text-secondary);
-		max-width: 600px;
-		margin: 0 auto;
+		line-height: 1.6;
 	}
 
 	.blog-filters {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
 		gap: var(--spacing-sm);
 		margin-bottom: var(--spacing-2xl);
 	}
 
 	.filter-tag {
 		padding: var(--spacing-sm) var(--spacing-md);
-		background: var(--color-bg-secondary);
+		background: transparent;
 		border: 1px solid var(--color-border);
 		border-radius: var(--radius-full);
 		color: var(--color-text-secondary);
 		font-size: var(--font-size-sm);
 		cursor: pointer;
-		transition: all var(--transition-base);
+		transition: all var(--transition-fast);
 	}
 
 	.filter-tag:hover {
-		border-color: var(--color-border-light);
-		color: var(--color-text-primary);
+		border-color: var(--color-text);
+		color: var(--color-text);
 	}
 
 	.filter-tag.active {
-		background: var(--gradient-accent);
-		border-color: transparent;
-		color: white;
+		background: var(--color-text);
+		border-color: var(--color-text);
+		color: var(--color-bg);
 	}
 
 	.posts-list {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-xl);
-		max-width: 800px;
-		margin: 0 auto;
 	}
 
 	.post-item {
-		background: var(--gradient-card);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-xl);
-		padding: var(--spacing-xl);
-		transition: all var(--transition-base);
-		animation: fadeInUp 0.6s ease forwards;
-		opacity: 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: var(--spacing-xl);
+		padding: var(--spacing-lg) 0;
+		border-top: 1px solid var(--color-border-subtle);
+		text-decoration: none;
+		transition: padding-left var(--transition-fast);
+	}
+
+	.post-item:last-child {
+		border-bottom: 1px solid var(--color-border-subtle);
 	}
 
 	.post-item:hover {
-		border-color: var(--color-border-light);
-		transform: translateY(-4px);
-		box-shadow: var(--shadow-xl);
+		padding-left: var(--spacing-md);
+	}
+
+	.post-content {
+		flex: 1;
+	}
+
+	.post-title {
+		font-size: var(--font-size-lg);
+		font-weight: 500;
+		color: var(--color-text);
+		margin-bottom: var(--spacing-xs);
+		line-height: 1.4;
+	}
+
+	.post-item:hover .post-title {
+		color: var(--color-accent);
+	}
+
+	.post-excerpt {
+		font-size: var(--font-size-sm);
+		color: var(--color-text-secondary);
+		line-height: 1.6;
 	}
 
 	.post-meta {
 		display: flex;
-		align-items: center;
-		gap: var(--spacing-sm);
+		flex-direction: column;
+		align-items: flex-end;
+		gap: var(--spacing-xs);
+		white-space: nowrap;
+	}
+
+	.post-meta time {
 		font-size: var(--font-size-sm);
 		color: var(--color-text-muted);
-		margin-bottom: var(--spacing-md);
-		flex-wrap: wrap;
 	}
 
-	.separator {
-		opacity: 0.5;
-	}
-
-	.featured-badge {
-		padding: var(--spacing-xs) var(--spacing-sm);
-		background: var(--gradient-accent);
-		border-radius: var(--radius-sm);
+	.read-time {
 		font-size: var(--font-size-xs);
-		color: white;
-		font-weight: 500;
-	}
-
-	.post-title {
-		font-size: var(--font-size-2xl);
-		line-height: 1.3;
-		margin-bottom: var(--spacing-md);
-	}
-
-	.post-title a {
-		color: var(--color-text-primary);
-		text-decoration: none;
-		transition: color var(--transition-fast);
-	}
-
-	.post-title a:hover {
-		color: var(--color-accent-light);
-	}
-
-	.post-excerpt {
-		color: var(--color-text-secondary);
-		line-height: 1.7;
-		margin-bottom: var(--spacing-lg);
-	}
-
-	.post-footer {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding-top: var(--spacing-md);
-		border-top: 1px solid var(--color-border);
-		flex-wrap: wrap;
-		gap: var(--spacing-md);
-	}
-
-	.post-tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--spacing-sm);
-	}
-
-	.tag {
-		padding: var(--spacing-xs) var(--spacing-sm);
-		background: var(--color-bg-tertiary);
-		border: 1px solid transparent;
-		border-radius: var(--radius-sm);
-		font-size: var(--font-size-xs);
-		color: var(--color-accent-light);
-		font-family: var(--font-mono);
-		cursor: pointer;
-		transition: all var(--transition-fast);
-	}
-
-	.tag:hover {
-		background: var(--color-accent);
-		color: white;
-	}
-
-	.read-more {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-xs);
-		font-size: var(--font-size-sm);
-		font-weight: 500;
-		color: var(--color-accent-light);
-		transition: gap var(--transition-base);
-	}
-
-	.read-more:hover {
-		gap: var(--spacing-sm);
+		color: var(--color-text-muted);
 	}
 
 	.no-posts {
@@ -305,24 +208,16 @@
 		margin-bottom: var(--spacing-lg);
 	}
 
-	@keyframes fadeInUp {
-		from {
-			opacity: 0;
-			transform: translateY(30px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@media (max-width: 768px) {
-		.blog-header h1 {
-			font-size: var(--font-size-4xl);
+	@media (max-width: 640px) {
+		.post-item {
+			flex-direction: column;
+			gap: var(--spacing-sm);
 		}
 
-		.post-title {
-			font-size: var(--font-size-xl);
+		.post-meta {
+			flex-direction: row;
+			align-items: center;
+			gap: var(--spacing-md);
 		}
 	}
 </style>

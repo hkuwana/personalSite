@@ -2,176 +2,118 @@
 	const skills = [
 		{
 			category: 'AI & LLMs',
-			items: ['Claude / GPT', 'RAG pipelines', 'Tool-use agents', 'Evals', 'Prompt design', 'Streaming UX']
+			items: ['Claude / GPT', 'RAG pipelines', 'Tool-use agents', 'Evals', 'Prompt design']
 		},
 		{
-			category: 'TypeScript & Svelte',
-			items: ['SvelteKit 5', 'TypeScript', 'Vite', 'Tailwind']
+			category: 'Frontend',
+			items: ['SvelteKit', 'TypeScript', 'React', 'Tailwind']
 		},
 		{
 			category: 'Backend',
-			items: ['Python', 'Node.js', 'Supabase', 'PostgreSQL', 'REST APIs', 'GraphQL', 'Edge runtimes']
+			items: ['Python', 'Node.js', 'PostgreSQL', 'Supabase']
 		}
-	];
-
-	const stats = [
-		{ value: '2018', label: 'Shipping since' },
-		{ value: 'TS · Py', label: 'Daily stack' },
-		{ value: 'LLM-native', label: 'How I build' }
 	];
 </script>
 
 <section id="about" class="about section">
 	<div class="container">
-		<div class="about-header">
-			<span class="section-label">About</span>
-			<h2 class="section-title">Engineer who designs.<br/>Designer who ships.</h2>
-			<p class="section-subtitle">
-				I build software that augments people instead of replacing their judgment. Real
-				interfaces, real systems, real outcomes.
-			</p>
-		</div>
-
 		<div class="about-grid">
-			<div class="about-story card">
-				<h3>How I work</h3>
-				<p>
-					I started shipping code in 2018 as an intern, kept shipping through Brown ('21),
-					and now build product end-to-end: research, design, frontend, API, infra.
-				</p>
-				<p>
-					LLMs entered my stack the day they were useful. I treat them like a teammate with
-					blind spots: useful for grunt work, terrible at judgment, and the best leverage I
-					have for prototyping new interfaces before I commit to them.
-				</p>
-				<p>
-					I care about the seam between people and software. The model should fade into
-					the product. The product should fade into the work. That is the bar.
-				</p>
+			<div class="about-content">
+				<h2 class="section-title">About</h2>
+				<div class="about-text">
+					<p>
+						I started shipping code in 2018 as an intern, kept shipping through Brown ('21), and now build product end-to-end: research, design, frontend, API, infra.
+					</p>
+					<p>
+						LLMs entered my stack the day they were useful. I treat them like a teammate with blind spots—useful for grunt work, terrible at judgment, and the best leverage I have for prototyping new interfaces.
+					</p>
+					<p>
+						I care about the seam between people and software. The model should fade into the product. The product should fade into the work.
+					</p>
+				</div>
+				<a href="/resume.pdf" class="resume-link" target="_blank">
+					Download Resume
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M7 17L17 7M17 7H7M17 7V17"/>
+					</svg>
+				</a>
 			</div>
 
 			<div class="about-skills">
-				<h3>Technical Skills</h3>
-				<div class="skills-grid">
-					{#each skills as skillGroup}
-						<div class="skill-group card">
-							<h4>{skillGroup.category}</h4>
-							<ul class="skill-list">
-								{#each skillGroup.items as skill}
-									<li class="skill-item">{skill}</li>
-								{/each}
-							</ul>
+				<h3 class="skills-title">Skills</h3>
+				{#each skills as group}
+					<div class="skill-group">
+						<h4 class="skill-category">{group.category}</h4>
+						<div class="skill-list">
+							{#each group.items as skill}
+								<span class="skill-item">{skill}</span>
+							{/each}
 						</div>
-					{/each}
-				</div>
+					</div>
+				{/each}
 			</div>
-		</div>
-
-		<div class="about-stats">
-			{#each stats as stat}
-				<div class="stat-item">
-					<span class="stat-value">{stat.value}</span>
-					<span class="stat-label">{stat.label}</span>
-				</div>
-			{/each}
-		</div>
-
-		<div class="about-cta">
-			<a href="/resume.pdf" class="btn btn-secondary" target="_blank">
-				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-					<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-					<polyline points="14 2 14 8 20 8"/>
-					<line x1="16" y1="13" x2="8" y2="13"/>
-					<line x1="16" y1="17" x2="8" y2="17"/>
-					<polyline points="10 9 9 9 8 9"/>
-				</svg>
-				Download Resume
-			</a>
 		</div>
 	</div>
 </section>
 
 <style>
 	.about {
-		background: var(--color-bg-secondary);
-		position: relative;
-	}
-
-	.about::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 1px;
-		background: linear-gradient(90deg, transparent, var(--color-border), transparent);
-	}
-
-	.about-header {
-		text-align: center;
-		margin-bottom: var(--spacing-3xl);
-	}
-
-	.section-label {
-		display: inline-block;
-		padding: var(--spacing-sm) var(--spacing-md);
-		background: var(--color-bg-tertiary);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-full);
-		font-size: var(--font-size-sm);
-		color: var(--color-accent-light);
-		margin-bottom: var(--spacing-lg);
-	}
-
-	.about-header .section-title {
-		font-size: var(--font-size-4xl);
-		margin-bottom: var(--spacing-lg);
-	}
-
-	.about-header .section-subtitle {
-		max-width: 600px;
-		margin: 0 auto;
+		background: var(--color-bg-subtle);
 	}
 
 	.about-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: var(--spacing-2xl);
-		margin-bottom: var(--spacing-3xl);
+		gap: var(--spacing-4xl);
 	}
 
-	.about-story h3,
-	.about-skills h3 {
-		font-size: var(--font-size-xl);
-		margin-bottom: var(--spacing-lg);
-		color: var(--color-text-primary);
+	.about-text {
+		margin-bottom: var(--spacing-xl);
 	}
 
-	.about-story p {
+	.about-text p {
 		color: var(--color-text-secondary);
-		margin-bottom: var(--spacing-md);
 		line-height: 1.8;
+		margin-bottom: var(--spacing-md);
 	}
 
-	.about-story p:last-child {
+	.about-text p:last-child {
 		margin-bottom: 0;
 	}
 
-	.skills-grid {
-		display: flex;
-		flex-direction: column;
-		gap: var(--spacing-md);
+	.resume-link {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--spacing-sm);
+		font-size: var(--font-size-sm);
+		color: var(--color-text);
+		font-weight: 500;
+	}
+
+	.resume-link:hover {
+		color: var(--color-accent);
+	}
+
+	.skills-title {
+		font-size: var(--font-size-xl);
+		font-weight: 600;
+		margin-bottom: var(--spacing-xl);
 	}
 
 	.skill-group {
-		padding: var(--spacing-lg);
+		margin-bottom: var(--spacing-xl);
 	}
 
-	.skill-group h4 {
-		font-size: var(--font-size-sm);
-		color: var(--color-accent-light);
+	.skill-group:last-child {
+		margin-bottom: 0;
+	}
+
+	.skill-category {
+		font-size: var(--font-size-xs);
+		font-weight: 500;
+		color: var(--color-text-muted);
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: 0.08em;
 		margin-bottom: var(--spacing-md);
 	}
 
@@ -179,71 +121,21 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--spacing-sm);
-		list-style: none;
 	}
 
 	.skill-item {
 		padding: var(--spacing-xs) var(--spacing-md);
-		background: var(--color-bg-tertiary);
+		background: white;
+		border: 1px solid var(--color-border);
 		border-radius: var(--radius-full);
 		font-size: var(--font-size-sm);
 		color: var(--color-text-secondary);
-		transition: all var(--transition-fast);
-	}
-
-	.skill-item:hover {
-		background: var(--color-accent);
-		color: white;
-	}
-
-	.about-stats {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: var(--spacing-xl);
-		padding: var(--spacing-2xl);
-		background: var(--color-bg-tertiary);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-xl);
-		margin-bottom: var(--spacing-2xl);
-		text-align: center;
-	}
-
-	.stat-item {
-		display: flex;
-		flex-direction: column;
-		gap: var(--spacing-xs);
-	}
-
-	.stat-value {
-		font-size: var(--font-size-4xl);
-		font-weight: 700;
-		background: var(--gradient-accent);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-	}
-
-	.stat-label {
-		font-size: var(--font-size-sm);
-		color: var(--color-text-secondary);
-	}
-
-	.about-cta {
-		text-align: center;
 	}
 
 	@media (max-width: 768px) {
 		.about-grid {
 			grid-template-columns: 1fr;
-		}
-
-		.about-stats {
-			grid-template-columns: 1fr;
-			gap: var(--spacing-lg);
-		}
-
-		.about-header .section-title {
-			font-size: var(--font-size-3xl);
+			gap: var(--spacing-3xl);
 		}
 	}
 </style>
