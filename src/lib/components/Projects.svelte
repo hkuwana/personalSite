@@ -1,39 +1,43 @@
 <script>
 	const projects = [
 		{
-			title: 'Personal Portfolio',
-			description: 'A modern, animated personal website built with SvelteKit 5. Features smooth animations, dark theme, and a blog section.',
-			tags: ['SvelteKit', 'TypeScript', 'CSS'],
-			image: '/images/project-portfolio.jpg',
-			liveUrl: '#',
-			githubUrl: 'https://github.com/hkuwana/personalSite',
+			title: 'Kaiwa',
+			description: 'AI-powered language learning platform for bite-sized, real-time conversation practice. Solo-built: product, design, frontend, backend and infra. 2,500+ learners across 126 countries practicing 45 languages, with 9,000+ voice sessions and ~28,000 minutes of practice.',
+			tags: ['SvelteKit', 'TypeScript', 'Python', 'Supabase', 'LLM systems'],
+			liveUrl: 'https://trykaiwa.com',
+			githubUrl: '',
 			featured: true
 		},
 		{
-			title: 'Task Management App',
-			description: 'A collaborative task management application with real-time updates, team workspaces, and progress tracking.',
-			tags: ['Vue.js', 'Firebase', 'Node.js'],
-			image: '/images/project-tasks.jpg',
-			liveUrl: '#',
-			githubUrl: '#',
+			title: 'Flybyrd',
+			description: 'A tool that organizes scattered customer feedback for B2C product teams. Shipped an MVP and ran pilots with early customers.',
+			tags: ['Product', 'MVP', 'Customer research'],
+			liveUrl: '',
+			githubUrl: '',
 			featured: true
 		},
 		{
-			title: 'E-Commerce Platform',
-			description: 'Full-stack e-commerce solution with product management, cart functionality, and secure payment processing.',
-			tags: ['React', 'Python', 'PostgreSQL'],
-			image: '/images/project-ecommerce.jpg',
-			liveUrl: '#',
-			githubUrl: '#',
+			title: 'Pebble / DegiNoma',
+			description: 'An AI-powered concierge service that customized tourist travel plans around authentic Japan.',
+			tags: ['AI concierge', 'Travel'],
+			liveUrl: '',
+			githubUrl: '',
 			featured: false
 		},
 		{
-			title: 'Weather Dashboard',
-			description: 'Real-time weather application with location-based forecasts, interactive maps, and weather alerts.',
-			tags: ['Svelte', 'REST API', 'Charts'],
-			image: '/images/project-weather.jpg',
-			liveUrl: '#',
-			githubUrl: '#',
+			title: 'Kezari',
+			description: 'Co-founded in Providence. Exceeded the pre-launch sales goal and turned a profit; awarded the Nelson Center Explorer Grant and named to American Inno\'s 50 on Fire RI 2019.',
+			tags: ['Co-founder', 'Startup'],
+			liveUrl: '',
+			githubUrl: '',
+			featured: false
+		},
+		{
+			title: 'Personal Portfolio',
+			description: 'This site. SvelteKit 5 with a markdown-powered blog.',
+			tags: ['SvelteKit', 'TypeScript', 'CSS'],
+			liveUrl: '',
+			githubUrl: 'https://github.com/hkuwana/personalSite',
 			featured: false
 		}
 	];
@@ -85,18 +89,22 @@
 							</svg>
 						</div>
 						<div class="project-overlay">
-							<a href={project.liveUrl} class="overlay-btn" aria-label="View live project">
+							{#if project.liveUrl}
+							<a href={project.liveUrl} class="overlay-btn" aria-label="View live project" target="_blank" rel="noopener noreferrer">
 								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 									<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
 									<polyline points="15 3 21 3 21 9"/>
 									<line x1="10" y1="14" x2="21" y2="3"/>
 								</svg>
 							</a>
-							<a href={project.githubUrl} class="overlay-btn" aria-label="View source code">
+							{/if}
+							{#if project.githubUrl}
+							<a href={project.githubUrl} class="overlay-btn" aria-label="View source code" target="_blank" rel="noopener noreferrer">
 								<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
 									<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
 								</svg>
 							</a>
+							{/if}
 						</div>
 					</div>
 

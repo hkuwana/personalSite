@@ -2,15 +2,15 @@
 	const skills = [
 		{
 			category: 'AI & LLMs',
-			items: ['Claude / GPT', 'RAG pipelines', 'Tool-use agents', 'Evals', 'Prompt design', 'Streaming UX']
+			items: ['Claude / GPT', 'RAG', 'Tool-use agents', 'Evals', 'Real-time voice AI']
 		},
 		{
-			category: 'TypeScript & Svelte',
-			items: ['SvelteKit 5', 'TypeScript', 'Vite', 'Tailwind']
+			category: 'Frontend & Design',
+			items: ['TypeScript', 'JavaScript', 'SvelteKit', 'Vue', 'HTML/CSS', 'Figma']
 		},
 		{
-			category: 'Backend',
-			items: ['Python', 'Node.js', 'Supabase', 'PostgreSQL', 'REST APIs', 'GraphQL', 'Edge runtimes']
+			category: 'Backend & Data',
+			items: ['Python', 'Node.js', 'SQL / PostgreSQL', 'Supabase']
 		}
 	];
 
