@@ -27,6 +27,37 @@ Selling something used is a pain, and the pain is all small tasks:
 
 None of that is hard. It's just tedious, which is why closets and garages stay full. It's also a job an AI agent can almost entirely do for you, **as long as it can reach the marketplace.**
 
+## Before and after
+
+**Before:** you do every step yourself.
+
+```mermaid
+flowchart TD
+    A[Find something to sell] --> B[Google the brand and model]
+    B --> C[Scroll listings to guess a price]
+    C --> D[Take photos and write the listing]
+    D --> E[Post it on Marketplace]
+    E --> F["Answer 'is this still available?' x20"]
+    F --> G[Haggle with lowball offers]
+    G --> H[Coordinate a pickup time]
+    H --> I[Sold]
+```
+
+**After:** you take photos and set your limits. Muse does the rest.
+
+```mermaid
+flowchart TD
+    A[You: take photos, plus the tag] --> B[Muse: identifies the item]
+    B --> C[Muse: prices it from local Marketplace data]
+    C --> D[You: answer five questions about your limits]
+    D --> E[Muse: writes and posts the listing]
+    E --> F[Muse: answers buyers and counters offers]
+    F --> G{Close to your floor?}
+    G -- yes --> H[You: approve or decline]
+    G -- no --> F
+    H --> I[Sold]
+```
+
 ## What the flow looks like
 
 Here's the use case I keep thinking about:

@@ -45,6 +45,19 @@ function parseFrontmatter(raw: string): { data: Record<string, unknown>; content
 
 marked.setOptions({ gfm: true, breaks: false });
 
+const escapeHtml = (s: string) =>
+	s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+// ```mermaid blocks become <div class="mermaid"> for the post page to render client-side.
+marked.use({
+	renderer: {
+		code({ text, lang }) {
+			if (lang === 'mermaid') return `<div class="mermaid">${escapeHtml(text)}</div>\n`;
+			return false;
+		}
+	}
+});
+
 const rawModules = import.meta.glob('/src/content/blog/*.md', {
 	eager: true,
 	query: '?raw',
