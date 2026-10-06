@@ -5,6 +5,19 @@
 	const slug = $derived($page.params.slug ?? '');
 	const post = $derived(slug ? getArticle(slug) : null);
 
+	let contentEl: HTMLDivElement | undefined = $state();
+
+	$effect(() => {
+		if (!post || !contentEl) return;
+		const nodes = Array.from(contentEl.querySelectorAll<HTMLElement>('.mermaid'));
+		if (!nodes.length) return;
+
+		import('mermaid').then(({ default: mermaid }) => {
+			mermaid.initialize({ startOnLoad: false, theme: 'dark' });
+			mermaid.run({ nodes });
+		});
+	});
+
 	function formatDate(dateStr: string) {
 		return new Date(dateStr).toLocaleDateString('en-US', {
 			year: 'numeric',
@@ -56,7 +69,7 @@
 				</div>
 			</header>
 
-			<div class="post-content">
+			<div class="post-content" bind:this={contentEl}>
 				{@html post.contentHtml}
 			</div>
 
@@ -224,6 +237,17 @@
 		overflow-x: auto;
 		font-size: var(--font-size-sm);
 		line-height: 1.6;
+	}
+
+	.post-content :global(.mermaid) {
+		display: flex;
+		justify-content: center;
+		margin-bottom: var(--spacing-lg);
+		padding: var(--spacing-lg);
+		background: var(--color-bg-tertiary);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		overflow-x: auto;
 	}
 
 	.post-content :global(code) {
