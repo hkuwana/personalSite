@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "npm run validate && vite build",
+    "validate": "tsx scripts/validate-content.ts",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -15,14 +16,16 @@
     "@sveltejs/adapter-cloudflare": "^7.2.9",
     "@sveltejs/kit": "^2.9.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "@types/js-yaml": "^4.0.9",
     "svelte": "^5.12.0",
     "svelte-check": "^4.1.0",
+    "tsx": "^4.20.6",
     "typescript": "^5.7.2",
     "vite": "^6.0.3",
     "wrangler": "^4.151.1"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
     "marked": "^15.0.4"
   },
   "type": "module"
