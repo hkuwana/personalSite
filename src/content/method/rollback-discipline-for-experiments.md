@@ -1,10 +1,17 @@
 ---
 title: "Rollback Discipline: When Your Shipped Winner Stops Winning"
-date: 2026-04-28
-readTime: 6 min read
-excerpt: A symmetric rollback protocol for experiments that turned out to regress. Three dimensions, one week of patience, and one rule you'll be tempted to break.
-tags: [AI, Experiments, Process]
+title_ja: "ロールバックの規律：標準にした勝ち案が勝たなくなったとき"
+date: "2026-04-28"
+lang: en
+pair: null
+tags: ["AI", "Experiments", "Process"]
+draft: false
 featured: false
+reading_time_min: 6
+excerpt: "A symmetric rollback protocol for experiments that turned out to regress. Three dimensions, one week of patience, and one rule you'll be tempted to break."
+canonical_lang: en
+summary_ja: >-
+  標準にした案で数字が悪化したら、その日のうちにフラグで元に戻します。そのあと回復を3晩見届けるまでは他の変更をせず、何が起き、なぜ見逃したかを実験記録に書きます。悪かった案はすぐに消さず、1週間は低い配分で残し、特定の利用者層でだけ勝っていないかを確かめます。問うべきは誰の責任かではなく、次にどんな歯止めを加えるかです。
 ---
 
 Every team that runs A/B tests eventually ships a "winner" that wasn't. The bandit recommended it, the dashboard agreed, you promoted it to default, and three weeks later retention is down, support tickets are up, and someone is asking the obvious question: was this the change?

@@ -1,10 +1,17 @@
 ---
 title: "How to Tell If Your AI Is Actually Working"
-date: 2026-05-05
-readTime: 8 min read
-excerpt: A primer for people who've added AI to their product or workflow and have a nagging feeling they have no idea whether it's helping. A 30-minute audit you can run this afternoon.
-tags: [AI, Evaluation, Beginners]
-featured: false
+title_ja: "そのAIは本当に効いているか：30分でできる点検"
+date: "2026-05-05"
+lang: en
+pair: null
+tags: ["AI", "Evaluation", "Beginners"]
+draft: false
+featured: true
+reading_time_min: 8
+excerpt: "A primer for people who've added AI to their product or workflow and have a nagging feeling they have no idea whether it's helping. A 30-minute audit you can run this afternoon."
+canonical_lang: en
+summary_ja: >-
+  AIを導入して速くなった気がするのに、業務の数字は動いていない。よくあることです。まず、何が変わったか、どの数字が動くべきか、いつまでにどれだけ動くかを、一文ずつ書きます。既存のイベント、スクリプトでの検証、評価項目、A/Bテスト、LLMによる評価の順に、必要な段階まで測ります。数字が動かない機能は、指標を直すか、止めます。
 ---
 
 A primer for people who've added AI to their product, workflow, or codebase : and have a nagging feeling that they have no idea whether it's helping.

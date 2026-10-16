@@ -21,5 +21,27 @@
 		"contact": "Contact",
 		"connect": "Connect",
 		"disclaimer": "Diagnostics are opinions built from public sources. Not investment advice."
+	},
+	"common": {
+		"minRead": "min read",
+		"readMore": "Read",
+		"featured": "Featured",
+		"viewAll": "View all",
+		"back": "Back"
+	},
+	"method": {
+		"label": "Method",
+		"title": "How I think about AI work",
+		"intro": "Short pieces on measuring AI, briefing agents and running experiments without fooling yourself.",
+		"metaDescription": "Method posts by Hiro Kuwana: measuring whether AI works, briefing agents like runbooks, and experiment discipline.",
+		"backToIndex": "All method posts",
+		"originalInEnglish": "Original in English",
+		"readOriginal": "Read the original",
+		"abstractNote": "This post is in English. Below is the Japanese abstract."
+	},
+	"gone": {
+		"title": "This page was removed",
+		"body": "It was an older post that no longer reflects this site. The method posts are here:",
+		"link": "Method"
 	}
 }

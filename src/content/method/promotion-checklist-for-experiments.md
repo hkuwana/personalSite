@@ -1,10 +1,17 @@
 ---
 title: "The Promotion Checklist: Shipping an Experiment Win Without Faking It"
-date: 2026-04-25
-readTime: 6 min read
-excerpt: A bandit recommending "winner" is not a winner. Three independent dimensions you should check before you flip the default. Borrowed from Shisa's definition-of-done framing.
-tags: [AI, Experiments, Process]
+title_ja: "昇格チェックリスト：実験の勝ち案を、ごまかさずに標準にする"
+date: "2026-04-25"
+lang: en
+pair: null
+tags: ["AI", "Experiments", "Process"]
+draft: false
 featured: false
+reading_time_min: 6
+excerpt: "A bandit recommending \"winner\" is not a winner. Three independent dimensions you should check before you flip the default. Borrowed from Shisa's definition-of-done framing."
+canonical_lang: en
+summary_ja: >-
+  バンディットが勝ちと判定しても、それだけで標準に切り替えるには足りません。切り替える前に、勝ち案が実際に配信されイベントに正しく記録されているか、安定期間を経た信号があるか、事前に書いた仮説と成功基準が記録に残っているかの3点を確かめます。安定判定が出ても昇格を見送ったことが一度もなければ、このチェックは形だけになっています。
 ---
 
 The bandit says arm B has been winning for five nights straight. The posterior probability of "best" is 78%. The chart is monotonically up and to the right.

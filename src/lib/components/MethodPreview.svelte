@@ -1,73 +1,52 @@
 <script lang="ts">
-	const posts = [
-		{
-			slug: 'getting-started-with-svelte-5',
-			title: 'Getting Started with Svelte 5: A Complete Guide',
-			excerpt: 'Explore the new features in Svelte 5, including runes, fine-grained reactivity, and improved performance.',
-			date: '2024-01-15',
-			readTime: '8 min read',
-			tags: ['Svelte', 'JavaScript', 'Tutorial']
-		},
-		{
-			slug: 'building-better-apis',
-			title: 'Building Better APIs: Best Practices for RESTful Design',
-			excerpt: 'Learn how to design clean, intuitive, and scalable REST APIs that developers love to use.',
-			date: '2024-01-08',
-			readTime: '6 min read',
-			tags: ['API', 'Backend', 'Best Practices']
-		},
-		{
-			slug: 'the-power-of-typescript',
-			title: 'The Power of TypeScript in Large-Scale Applications',
-			excerpt: 'Why TypeScript is essential for building maintainable applications and how to get the most out of it.',
-			date: '2024-01-01',
-			readTime: '5 min read',
-			tags: ['TypeScript', 'JavaScript']
-		}
-	];
+	import { formatDate } from '$lib/format';
+	import { localize, type Dictionary, type Locale } from '$lib/i18n';
+	import type { MethodPost } from '$lib/server/content/types';
 
-	function formatDate(dateStr: string) {
-		return new Date(dateStr).toLocaleDateString('en-US', {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric'
-		});
-	}
+	let {
+		posts,
+		locale,
+		t
+	}: { posts: Omit<MethodPost, 'html'>[]; locale: Locale; t: Dictionary } = $props();
+
+	const ja = $derived(locale === 'ja');
 </script>
 
-<section id="blog" class="blog-preview section">
+<section id="method" class="blog-preview section">
 	<div class="container">
 		<div class="blog-header">
 			<div class="header-content">
-				<span class="section-label">Writing</span>
-				<h2 class="section-title">Notes from the workbench</h2>
-				<p class="section-subtitle">
-					Short pieces on building with LLMs, the tools I use daily, and what stops being
-					true the more you ship.
-				</p>
+				<span class="section-label">{t.method.label}</span>
+				<h2 class="section-title">{t.method.title}</h2>
+				<p class="section-subtitle">{t.method.intro}</p>
 			</div>
-			<a href="/blog" class="btn btn-secondary view-all">
-				View All Posts
-				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+			<a href={localize('/method', locale)} class="btn btn-secondary view-all">
+				{t.common.viewAll}
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
 					<path d="M5 12h14M12 5l7 7-7 7"/>
 				</svg>
 			</a>
 		</div>
 
 		<div class="posts-grid">
-			{#each posts as post, i}
+			{#each posts as post, i (post.slug)}
 				<article class="post-card card" style="animation-delay: {i * 0.1}s">
 					<div class="post-meta">
-						<time datetime={post.date}>{formatDate(post.date)}</time>
+						<time datetime={post.date}>{formatDate(post.date, locale)}</time>
 						<span class="separator">•</span>
-						<span>{post.readTime}</span>
+						<span>{post.readingTimeMin} {t.common.minRead}</span>
 					</div>
 
 					<h3 class="post-title">
-						<a href="/blog/{post.slug}">{post.title}</a>
+						<a
+							href={localize(`/method/${post.slug}`, locale)}
+							data-track="method_post_opened"
+							data-track-slug={post.slug}
+							data-track-location="home">{ja ? (post.title_ja ?? post.title) : post.title}</a
+						>
 					</h3>
 
-					<p class="post-excerpt">{post.excerpt}</p>
+					<p class="post-excerpt">{ja ? post.summary_ja : post.excerpt}</p>
 
 					<div class="post-footer">
 						<div class="post-tags">
@@ -75,8 +54,8 @@
 								<span class="tag">{tag}</span>
 							{/each}
 						</div>
-						<a href="/blog/{post.slug}" class="read-more">
-							Read More
+						<a href={localize(`/method/${post.slug}`, locale)} class="read-more" aria-hidden="true" tabindex="-1">
+							{t.common.readMore}
 							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 								<path d="M5 12h14M12 5l7 7-7 7"/>
 							</svg>
@@ -183,6 +162,11 @@
 		line-height: 1.7;
 		flex-grow: 1;
 		margin-bottom: var(--spacing-lg);
+		display: -webkit-box;
+		-webkit-line-clamp: 5;
+		line-clamp: 5;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
 	}
 
 	.post-footer {

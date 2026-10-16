@@ -1,10 +1,17 @@
 ---
 title: "The program.md Pattern: How to Brief an AI Like a Runbook"
-date: 2026-05-01
-readTime: 6 min read
-excerpt: One file per AI task, structured like an oncall runbook. Goal, allowed files, forbidden files, loop, stopping criteria. This is what separates AI experiments that compound from AI experiments that drift.
-tags: [AI, Claude, Writing]
-featured: false
+title_ja: "program.md パターン：AIへの指示を運用手順書のように書く"
+date: "2026-05-01"
+lang: en
+pair: null
+tags: ["AI", "Claude", "Writing"]
+draft: false
+featured: true
+reading_time_min: 6
+excerpt: "One file per AI task, structured like an oncall runbook. Goal, allowed files, forbidden files, loop, stopping criteria. This is what separates AI experiments that compound from AI experiments that drift."
+canonical_lang: en
+summary_ja: >-
+  AIのワークフローが崩れる原因は、モデルの性能より、何をさせるかを書き残していないことにあります。タスクごとに運用手順書のような program.md を1つ置き、目的、編集してよいファイル、触ってはいけないファイル、手順、終了条件の5項目だけを書きます。要点は、測れる目標を置くことと、評価用スクリプトを編集禁止にすることです。毎回同じ指示から始まるので、無人で回すAIの作業が積み上がっていきます。
 ---
 
 Most AI workflows die not because the model is bad, but because no one wrote down what the model was supposed to do. After the third "I asked it to refactor X but it ended up rewriting Y" incident, you start to suspect the problem isn't the AI.

@@ -1,10 +1,17 @@
 ---
 title: "From Chat to Cron: Setting Up Claude as an Overnight Research Assistant"
-date: 2026-05-07
-readTime: 8 min read
-excerpt: For people who've used Claude in a chat window and wondered : can it just keep going on its own? Yes. Here is what to give it and what to take away.
-tags: [AI, Claude, Tutorial]
+title_ja: "チャットからcronへ：Claudeを夜間のリサーチ助手にする"
+date: "2026-05-07"
+lang: en
+pair: null
+tags: ["AI", "Claude", "Tutorial"]
+draft: false
 featured: false
+reading_time_min: 8
+excerpt: "For people who've used Claude in a chat window and wondered : can it just keep going on its own? Yes. Here is what to give it and what to take away."
+canonical_lang: en
+summary_ja: >-
+  チャットで使っていたClaudeを、無人で回し続けるための設定手順です。明確な仕事、自分で採点できる仕組み、触ってよいファイルを渡し、曖昧な目標、無制限の編集、途中での質問を取り上げます。program.md、ベンチマーク用スクリプト、起動コマンド、スマートフォンから様子を見る方法をそろえれば、数字が改善した変更だけをコミットするループが一晩で動きます。
 ---
 
 For people who've used Claude in a chat window and wondered: *can it just keep going on its own?*

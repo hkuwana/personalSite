@@ -1,10 +1,17 @@
 ---
 title: "The Proxy-Metric Trap: Why Your LLM Eval Loop Is Probably Lying"
-date: 2026-05-09
-readTime: 6 min read
-excerpt: A short, hard-earned post about the single most expensive mistake I see teams make with AI : letting another LLM judge the work. If you have a score function that's a prompt, this is for you.
-tags: [AI, Evaluation, Experiments]
+title_ja: "代理指標の罠：LLMに採点させる評価ループはなぜ当てにならないか"
+date: "2026-05-09"
+lang: en
+pair: null
+tags: ["AI", "Evaluation", "Experiments"]
+draft: false
 featured: true
+reading_time_min: 6
+excerpt: "A short, hard-earned post about the single most expensive mistake I see teams make with AI : letting another LLM judge the work. If you have a score function that's a prompt, this is for you."
+canonical_lang: en
+summary_ja: >-
+  AIの出力を別のLLMに採点させて最適化すると、エージェントは利用者より先に採点役の癖を学びます。スコアは上がっても、継続率や転換率は動きません。LLMの採点に頼る前に、既存のイベント、正規表現やスキーマでの検証、ルールベースの評価項目、実ユーザーでのA/Bテストの順に検討します。それでもLLMを使う場合は、20件以上の人手ラベルと80%以上一致することを条件にします。
 ---
 
 A short, hard-earned post about the single most expensive mistake I see teams make with AI: letting another LLM judge the work.

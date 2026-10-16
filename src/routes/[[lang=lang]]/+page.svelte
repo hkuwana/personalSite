@@ -2,7 +2,7 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import About from '$lib/components/About.svelte';
 	import Projects from '$lib/components/Projects.svelte';
-	import BlogPreview from '$lib/components/BlogPreview.svelte';
+	import MethodPreview from '$lib/components/MethodPreview.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { onMount } from 'svelte';
@@ -35,5 +35,5 @@
 <Hero />
 <About />
 <Projects />
-<BlogPreview />
+<MethodPreview posts={data.featured} locale={data.locale} t={data.t} />
 <Contact />

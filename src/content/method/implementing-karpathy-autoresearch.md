@@ -1,10 +1,17 @@
 ---
 title: "Implementing Karpathy's Autoresearch: A README-Style Guide"
-date: 2026-05-11
-readTime: 12 min read
-excerpt: A practical, opinionated walkthrough for adding an autoresearch directory to your own product : the kind that wakes up at night, checks real signals, and tells you what to fix in the morning.
-tags: [AI, AutoResearch, Claude, Experiments]
-featured: true
+title_ja: "Karpathyのautoresearchを自分のプロダクトに実装する"
+date: "2026-05-11"
+lang: en
+pair: null
+tags: ["AI", "AutoResearch", "Claude", "Experiments"]
+draft: false
+featured: false
+reading_time_min: 12
+excerpt: "A practical, opinionated walkthrough for adding an autoresearch directory to your own product : the kind that wakes up at night, checks real signals, and tells you what to fix in the morning."
+canonical_lang: en
+summary_ja: >-
+  夜のあいだに実際のシグナルを確認し、朝に直すべき点を知らせる autoresearch/ ディレクトリを、自分のプロダクトに加える手順です。大半は、ひとつの指標を読んでJSONに書き出すだけの監視ループで、LLMによる採点は使いません。Claudeがコードを編集し、ベンチマークで速くなった変更だけを残す実験ループもひとつ含めます。LLMを採点役にしたループは、効果が見えなかったので削除しました。
 ---
 
 A practical, opinionated walkthrough for adding an `autoresearch/` directory to your own product : the kind that wakes up at night, checks real signals, and tells you what to fix in the morning.

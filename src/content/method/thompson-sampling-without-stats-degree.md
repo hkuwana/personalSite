@@ -1,10 +1,17 @@
 ---
-title: "Thompson Sampling Without a Stats Degree"
-date: 2026-05-03
-readTime: 7 min read
-excerpt: A working developer's intro to multi-armed bandits for product A/B tests. Includes the 30-line Node implementation, why it beats classical A/B in most real situations, and the failure modes nobody warns you about.
-tags: [AI, Experiments, Tutorial]
+title: "Which Variant Gets the Traffic? Thompson Sampling Without a Stats Degree"
+title_ja: "どの案に流入を回すか：統計の専門知識なしで使うトンプソン・サンプリング"
+date: "2026-05-03"
+lang: en
+pair: null
+tags: ["AI", "Experiments", "Tutorial"]
+draft: false
 featured: false
+reading_time_min: 7
+excerpt: "A working developer's intro to multi-armed bandits for product A/B tests. Includes the 30-line Node implementation, why it beats classical A/B in most real situations, and the failure modes nobody warns you about."
+canonical_lang: en
+summary_ja: >-
+  オンボーディングの文面やプロンプトの複数案のうち、どれを標準にするかを、テストを回しながら決める方法です。トンプソン・サンプリングは、データが入るたびに有望な案へ配分を寄せるので、固定のサンプル数やp値を待つ必要がありません。約30行のJavaScript実装、製品への組み込み方、よくある失敗を説明します。
 ---
 
 You have three versions of an onboarding flow. You'd like to know which converts best. Classical advice: "Run an A/B test, gather n users, compute p-values, declare a winner." Reality: by the time you've gathered n users, your three flows have been three meetings and someone already shipped a fourth.
