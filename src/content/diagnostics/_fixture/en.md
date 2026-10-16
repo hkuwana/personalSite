@@ -24,7 +24,7 @@ video:
   duration_s: 118
 pdf: "./diagnostic-en.pdf"
 prompts: ["./prompts/01-ir-extraction.md", "./prompts/02-ai-leverage-map.md"]
-skills_used: []
+skills_used: ["_fixture"]
 verdict:
   pays_off: "Service technicians' visit reports: thousands a month, written by hand, read by nobody until a claim arrives."
   check_first: "Whether chemical dosing data from customer sites is already centralised, or still sits in each plant."

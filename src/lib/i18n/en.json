@@ -78,5 +78,19 @@
 	"contact": {
 		"reveal": "Email",
 		"revealed": "Opening your email app…"
+	},
+	"skills": {
+		"label": "Skills",
+		"title": "Prompts and skills I use, published",
+		"intro": "The working files behind the diagnostics: what each one does, the prompt itself, which models it was tested on, and where it was used.",
+		"metaDescription": "Published prompts and Claude skills by Hiro Kuwana, with the diagnostics each was used in.",
+		"empty": "The first skills will be published with the first diagnostic.",
+		"file": "The skill",
+		"modelTested": "Tested on",
+		"usedIn": "Used in",
+		"changelog": "Changelog",
+		"version": "Version",
+		"license": "License",
+		"backToIndex": "All skills"
 	}
 }

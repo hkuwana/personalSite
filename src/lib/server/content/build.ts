@@ -312,8 +312,11 @@ function crossCheck(
 			);
 		}
 		for (const s of d.skills_used) {
-			if (!content.skills.some((k) => k.slug === s)) {
+			const skill = content.skills.find((k) => k.slug === s);
+			if (!skill) {
 				errors.push(`${where}: skills_used names "${s}", which is not in src/content/skills`);
+			} else if (skill.draft && !d.draft) {
+				errors.push(`${where}: skills_used names "${s}", which is a draft and will not be published`);
 			}
 		}
 		if (d.pdf === null) {
@@ -323,8 +326,11 @@ function crossCheck(
 
 	for (const k of content.skills) {
 		for (const slug of k.used_in) {
-			if (!content.diagnostics.some((d) => d.slug === slug)) {
+			const d = content.diagnostics.find((d) => d.slug === slug);
+			if (!d) {
 				errors.push(`skills/${k.slug}/${k.lang}.md: used_in names "${slug}", which is not a diagnostic`);
+			} else if (d.draft && !k.draft) {
+				errors.push(`skills/${k.slug}/${k.lang}.md: used_in names "${slug}", which is a draft and will not be published`);
 			}
 		}
 	}

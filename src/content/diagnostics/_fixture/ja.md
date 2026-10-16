@@ -23,7 +23,7 @@ video:
   duration_s: 118
 pdf: "./diagnostic-ja.pdf"
 prompts: ["./prompts/01-ir-extraction.md", "./prompts/02-ai-leverage-map.md"]
-skills_used: []
+skills_used: ["_fixture"]
 verdict:
   pays_off: "サービス技術者の訪問報告書。月に数千件が手書きで作られ、クレームが来るまで誰も読みません。"
   check_first: "顧客拠点の薬注データがすでに一元化されているか、各プラントに分散したままか。"
