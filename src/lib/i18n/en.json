@@ -43,5 +43,40 @@
 		"title": "This page was removed",
 		"body": "It was an older post that no longer reflects this site. The method posts are here:",
 		"link": "Method"
+	},
+	"diagnostics": {
+		"label": "Diagnostics",
+		"title": "Where AI pays off, company by company",
+		"intro": "Each diagnostic reads one listed company from the outside: its filings, mid-term plan and integrated report. It ends in three calls: where AI pays off, what to check first, and what to leave alone.",
+		"metaDescription": "Outside-view AI diagnostics of listed companies, built from public filings by Hiro Kuwana.",
+		"empty": "The first diagnostic is in progress.",
+		"outsideLabel": "Outside view, built from public filings. Not client work, no inside information.",
+		"verdict": "Verdict",
+		"paysOff": "Pays off",
+		"checkFirst": "Check first",
+		"leaveAlone": "Leave alone",
+		"video": "Watch the two-minute walkthrough",
+		"videoDuration": "min",
+		"memo": "Memo",
+		"method": "Method",
+		"methodIntro": "The prompts below produced the first draft of this memo. Copy them and run them on another company.",
+		"copy": "Copy",
+		"copied": "Copied",
+		"usedSkill": "Skill",
+		"sources": "Sources",
+		"pdf": "Download the PDF",
+		"ctaBody": "If you'd want this done on your own portfolio companies, with your data and tools: 30 minutes, no deck.",
+		"ctaButton": "Ask for a call",
+		"otterdLink": "Shipped version of this kind of work: Otterd case studies",
+		"correction": "Spotted an error? Email me and I'll fix it and note the change.",
+		"correctionButton": "Report an error",
+		"notAdvice": "This is an opinion based on public sources. It is not investment advice and says nothing about the company's shares.",
+		"ticker": "TSE",
+		"read": "Read the diagnostic",
+		"subjectPrefix": "Diagnostic"
+	},
+	"contact": {
+		"reveal": "Email",
+		"revealed": "Opening your email app…"
 	}
 }

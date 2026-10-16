@@ -3,7 +3,7 @@ import type { LayoutLoad } from './$types';
 
 export const prerender = true;
 
-export const load: LayoutLoad = ({ params }) => {
+export const load: LayoutLoad = ({ params, data }) => {
 	const locale = localeFrom(params.lang);
-	return { locale, t: dict(locale) };
+	return { ...data, locale, t: dict(locale) };
 };

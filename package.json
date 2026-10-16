@@ -17,6 +17,7 @@
     "@sveltejs/kit": "^2.9.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
     "@types/js-yaml": "^4.0.9",
+    "playwright": "^1.56.1",
     "svelte": "^5.12.0",
     "svelte-check": "^4.1.0",
     "tsx": "^4.20.6",

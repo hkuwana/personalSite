@@ -87,3 +87,9 @@ export interface Content {
 	skills: Skill[];
 	work: WorkPointer[];
 }
+
+/** What a listing needs: a diagnostic without its body, prompts or sources. */
+export type DiagnosticSummary = Pick<
+	Diagnostic,
+	'slug' | 'title' | 'date' | 'lang' | 'company' | 'verdict' | 'excerpt'
+>;

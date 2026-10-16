@@ -11,7 +11,10 @@ const config = {
 		prerender: {
 			entries: ['*', '/ja'],
 			// Until every section in the navigation has a route, a missing page is a warning.
-			handleHttpError: 'warn'
+			handleHttpError: 'warn',
+			// Detail routes (/diagnostics/[slug], /skills/[slug]) have no entries until the first real
+			// one is published; drafts and fixtures are left out of production builds.
+			handleUnseenRoutes: 'warn'
 		}
 	}
 };

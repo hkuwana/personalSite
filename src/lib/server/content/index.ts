@@ -1,6 +1,6 @@
 import { dev } from '$app/environment';
 import { buildContent } from './build';
-import type { Content, Lang } from './types';
+import type { Content, Diagnostic, DiagnosticSummary, Lang } from './types';
 
 export type * from './types';
 
@@ -48,4 +48,9 @@ export function find<T extends { slug: string; lang: Lang }>(
 	lang: Lang
 ): T | undefined {
 	return list.find((e) => e.slug === slug && e.lang === lang);
+}
+
+export function summarize(d: Diagnostic): DiagnosticSummary {
+	const { slug, title, date, lang, company, verdict, excerpt } = d;
+	return { slug, title, date, lang, company, verdict, excerpt };
 }

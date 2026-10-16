@@ -8,3 +8,8 @@ export const SOCIAL = {
 	linkedin: 'https://www.linkedin.com/in/hkuwana',
 	github: 'https://github.com/hkuwana'
 };
+
+// The contact address never appears in the HTML: layouts pass this encoded form to
+// ContactButton, which decodes it only when the visitor clicks. Override at build time with
+// PUBLIC_CONTACT_EMAIL.
+export const DEFAULT_CONTACT_EMAIL = 'hello@hkuwana.com';
