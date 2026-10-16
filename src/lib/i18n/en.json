@@ -118,5 +118,16 @@
 		"contactBody": "Email is the fastest way to reach me. If it is about a diagnostic, say which one.",
 		"contactButton": "Email me",
 		"otterd": "Otterd"
+	},
+	"home": {
+		"title": "Where AI pays off in a company, worked out from public filings.",
+		"sub": "I'm Hiro Kuwana, a bilingual engineer and founder of Otterd. Each diagnostic reads one listed company from the outside and ends in three calls: where AI pays off, what to check first, and what to leave alone.",
+		"latest": "Latest diagnostic",
+		"noneYet": "The first diagnostic is in progress. Until it ships, the method posts show how I work.",
+		"moreDiagnostics": "More diagnostics",
+		"workTitle": "Shipped versions of this work",
+		"workBody": "Client engagements run through Otterd, the firm I run with Eric Wu. Its case studies show the same thinking delivered inside investment teams.",
+		"workLink": "See the case studies",
+		"aboutLink": "About me"
 	}
 }
