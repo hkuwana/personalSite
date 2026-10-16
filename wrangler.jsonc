@@ -1,0 +1,15 @@
+{
+  // Cloudflare Workers with static assets. `npm run build` writes the worker and the
+  // prerendered pages into .svelte-kit/cloudflare; `npm run deploy` uploads them.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hkuwana",
+  "main": ".svelte-kit/cloudflare/_worker.js",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_als"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".svelte-kit/cloudflare"
+  }
+  // Custom domain: add once the preview is checked and hkuwana.com's DNS is in this account.
+  // "routes": [{ "pattern": "hkuwana.com", "custom_domain": true }]
+}
