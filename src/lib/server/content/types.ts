@@ -74,6 +74,8 @@ export interface Skill extends Base {
 
 export interface WorkPointer extends Base {
 	sector: string;
+	/** Byline on the Otterd study, so the site never claims a partner's work as Hiro's. */
+	author: string;
 	otterd_url: string;
 	otterd_pdf_url: string;
 	/** One verified sentence, copied verbatim from the Otterd case study. */

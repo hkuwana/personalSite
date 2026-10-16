@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { localize, type Dictionary, type Locale } from '$lib/i18n';
-	import { SOCIAL } from '$lib/site';
+	import { OTTERD_URL, SOCIAL } from '$lib/site';
 
 	let { locale, t }: { locale: Locale; t: Dictionary } = $props();
 
@@ -27,6 +27,16 @@
 					<span class="logo-dot"></span>
 				</a>
 				<p class="tagline">{t.footer.tagline}</p>
+				<a
+					class="otterd"
+					href="{OTTERD_URL}{locale === 'ja' ? '/ja' : ''}"
+					data-track="cta_clicked"
+					data-track-cta_id="otterd"
+					data-track-location="footer"
+				>
+					<span class="wordmark">Otterd</span>
+					<span>{t.footer.otterdLink} →</span>
+				</a>
 			</div>
 
 			<div class="footer-links">
@@ -104,6 +114,25 @@
 		color: var(--color-text-secondary);
 		font-size: var(--font-size-sm);
 		max-width: 300px;
+	}
+
+	.otterd {
+		display: inline-flex;
+		flex-direction: column;
+		gap: var(--spacing-xs);
+		margin-top: var(--spacing-lg);
+		color: var(--color-text-secondary);
+		font-size: var(--font-size-sm);
+	}
+
+	.otterd:hover {
+		color: var(--color-accent-light);
+	}
+
+	.wordmark {
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: var(--font-size-lg);
+		color: var(--color-text-primary);
 	}
 
 	.footer-links h4,

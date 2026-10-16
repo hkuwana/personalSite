@@ -285,6 +285,7 @@ function work(slug: string, lang: Lang, data: Data, body: string, err: Err): Wor
 	return {
 		...base(slug, lang, data, body, err),
 		sector: str(data, 'sector', err),
+		author: str(data, 'author', err),
 		otterd_url: url,
 		otterd_pdf_url: pdf,
 		result_line: str(data, 'result_line', err),

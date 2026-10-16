@@ -20,7 +20,8 @@
 		"otterd": "クライアント案件はOtterdで承ります",
 		"contact": "お問い合わせ",
 		"connect": "リンク",
-		"disclaimer": "診断は公開資料に基づく筆者の見解です。投資助言ではありません。"
+		"disclaimer": "診断は公開資料に基づく筆者の見解です。投資助言ではありません。",
+		"otterdLink": "Otterd 創業者：クライアント案件はこちら"
 	},
 	"common": {
 		"minRead": "分",
@@ -92,5 +93,30 @@
 		"version": "バージョン",
 		"license": "ライセンス",
 		"backToIndex": "スキルの一覧"
+	},
+	"work": {
+		"label": "実績",
+		"title": "クライアント案件はOtterdで",
+		"intro": "Otterdは、私がEric Wuと運営している会社で、PEファンドやヘッジファンドのチーム向けにAIのワークフローを構築しています。以下はOtterdが公開している事例です。成果の一文はOtterdの事例から原文のまま転記しており、Otterd側で確認済みです。",
+		"metaDescription": "Hiro KuwanaがEric Wuと運営するAI導入支援会社Otterdの事例。",
+		"by": "執筆",
+		"result": "成果",
+		"read": "Otterdで事例を読む",
+		"pdf": "PDF"
+	},
+	"about": {
+		"label": "プロフィール",
+		"title": "Hiro Kuwana",
+		"metaDescription": "Hiro Kuwanaは、実務で動くAIの仕組みを日本語と英語で作っています。Kaiwa創業者。Eric WuとOtterdを運営。",
+		"paragraphs": [
+			"実務で動くAIの仕組みを、日本語と英語で作っています。",
+			"語学練習アプリのKaiwaを創業し、その運営の大部分をAIエージェントに任せています。定時に動くジョブ、プルリクエストを作るコーディングエージェント、自分では送信しない下書きエージェントです。運営を通じて、何が壊れるか、人が何を承認し続けるべきかを学びました。",
+			"Eric Wuと共に、PEファンドやヘッジファンドのチーム向けにAIのワークフローを構築するOtterdを運営しています。クライアント案件はOtterdでお受けします。このサイトでは、公開資料から上場企業を読み解く診断、その方法論、使っているプロンプトなど、私自身の仕事の進め方をお見せしています。",
+			"2018年からソフトウェアを作り続けています。"
+		],
+		"contactTitle": "お問い合わせ",
+		"contactBody": "メールが一番早く届きます。診断についてのご連絡は、どの診断かをお書き添えください。",
+		"contactButton": "メールを送る",
+		"otterd": "Otterd"
 	}
 }

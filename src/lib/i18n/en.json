@@ -20,7 +20,8 @@
 		"otterd": "Client engagements run through Otterd",
 		"contact": "Contact",
 		"connect": "Connect",
-		"disclaimer": "Diagnostics are opinions built from public sources. Not investment advice."
+		"disclaimer": "Diagnostics are opinions built from public sources. Not investment advice.",
+		"otterdLink": "Founder of Otterd: client work lives there"
 	},
 	"common": {
 		"minRead": "min read",
@@ -92,5 +93,30 @@
 		"version": "Version",
 		"license": "License",
 		"backToIndex": "All skills"
+	},
+	"work": {
+		"label": "Work",
+		"title": "Client work lives at Otterd",
+		"intro": "Otterd is the firm I run with Eric Wu. It builds AI workflows for private equity and hedge fund teams. These are its published case studies; each result line is copied from Otterd and verified there.",
+		"metaDescription": "Case studies from Otterd, the AI implementation firm Hiro Kuwana runs with Eric Wu.",
+		"by": "By",
+		"result": "Result",
+		"read": "Read the case study at Otterd",
+		"pdf": "PDF"
+	},
+	"about": {
+		"label": "About",
+		"title": "Hiro Kuwana",
+		"metaDescription": "Hiro Kuwana builds AI systems that do real work, in English and Japanese. Founder of Kaiwa; runs Otterd with Eric Wu.",
+		"paragraphs": [
+			"I build AI systems that do real work, in English and Japanese.",
+			"I founded Kaiwa, a language-practice app I run largely on AI agents: scheduled jobs, a coding agent that opens pull requests, and drafting agents that never send on their own. Running it taught me what breaks and what a person still has to approve.",
+			"With Eric Wu, I run Otterd, which builds AI workflows for private equity and hedge fund teams. Client engagements run through Otterd. This site is where I show my own working: diagnostics of listed companies built from public filings, the method behind them, and the prompts I use.",
+			"I have been shipping software since 2018."
+		],
+		"contactTitle": "Contact",
+		"contactBody": "Email is the fastest way to reach me. If it is about a diagnostic, say which one.",
+		"contactButton": "Email me",
+		"otterd": "Otterd"
 	}
 }
