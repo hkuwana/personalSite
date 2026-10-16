@@ -26,7 +26,8 @@
 						<h2>
 							<a
 								href={localize(`/skills/${skill.slug}`, data.locale)}
-								data-track="skill_opened"
+								data-track="cta_clicked"
+								data-track-cta_id="skill"
 								data-track-skill={skill.slug}
 								data-track-location="index">{skill.title}</a
 							>

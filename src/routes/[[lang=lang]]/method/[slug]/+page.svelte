@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { capture } from '$lib/analytics';
 	import Seo from '$lib/components/Seo.svelte';
 	import { formatDate } from '$lib/format';
 	import { localize } from '$lib/i18n';
@@ -8,6 +10,8 @@
 	const post = $derived(data.post);
 	const ja = $derived(data.locale === 'ja');
 	const title = $derived(ja ? (post.title_ja ?? post.title) : post.title);
+
+	onMount(() => capture('method_post_opened', { slug: post.slug }));
 </script>
 
 <Seo

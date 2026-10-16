@@ -27,7 +27,8 @@
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
-    "marked": "^15.0.4"
+    "marked": "^15.0.4",
+    "posthog-js": "^1.438.2"
   },
   "type": "module"
 }

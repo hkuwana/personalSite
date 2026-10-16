@@ -11,5 +11,5 @@ export const SOCIAL = {
 
 // The contact address never appears in the HTML: layouts pass this encoded form to
 // ContactButton, which decodes it only when the visitor clicks. Override at build time with
-// PUBLIC_CONTACT_EMAIL.
+// CONTACT_EMAIL.
 export const DEFAULT_CONTACT_EMAIL = 'hello@hkuwana.com';

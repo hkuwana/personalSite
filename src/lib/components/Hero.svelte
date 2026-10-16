@@ -36,7 +36,8 @@
 					<a
 						class="btn btn-primary"
 						href={localize(`/diagnostics/${latest.slug}`, locale)}
-						data-track="diagnostic_opened"
+						data-track="cta_clicked"
+						data-track-cta_id="diagnostic"
 						data-track-slug={latest.slug}
 						data-track-location="home_hero">{t.diagnostics.read}</a
 					>

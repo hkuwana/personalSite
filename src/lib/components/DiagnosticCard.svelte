@@ -23,7 +23,8 @@
 	<h3>
 		<a
 			{href}
-			data-track="diagnostic_opened"
+			data-track="cta_clicked"
+			data-track-cta_id="diagnostic"
 			data-track-slug={d.slug}
 			data-track-location={location}>{name}</a
 		>

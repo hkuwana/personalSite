@@ -1,6 +1,6 @@
 # Checks every pull request and uploads a Cloudflare preview. Deploys when main changes.
-# Repository secret: CLOUDFLARE_API_TOKEN. Repository variables (optional): PUBLIC_POSTHOG_KEY,
-# PUBLIC_POSTHOG_HOST.
+# Repository secret: CLOUDFLARE_API_TOKEN. Repository variables (optional): POSTHOG_KEY,
+# POSTHOG_HOST, CONTACT_EMAIL. They are read at build time only; none is shipped as browser env.
 name: Deploy
 
 on:
@@ -35,8 +35,9 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          PUBLIC_POSTHOG_KEY: ${{ vars.PUBLIC_POSTHOG_KEY }}
-          PUBLIC_POSTHOG_HOST: ${{ vars.PUBLIC_POSTHOG_HOST }}
+          POSTHOG_KEY: ${{ vars.POSTHOG_KEY }}
+          POSTHOG_HOST: ${{ vars.POSTHOG_HOST }}
+          CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
 
       # Pull requests: a preview version with its own workers.dev URL. Allowed to fail so a
       # missing Cloudflare token cannot block review.

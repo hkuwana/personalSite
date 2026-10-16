@@ -40,7 +40,8 @@
 					<h3 class="post-title">
 						<a
 							href={localize(`/method/${post.slug}`, locale)}
-							data-track="method_post_opened"
+							data-track="cta_clicked"
+							data-track-cta_id="method_post"
 							data-track-slug={post.slug}
 							data-track-location="home">{ja ? (post.title_ja ?? post.title) : post.title}</a
 						>
