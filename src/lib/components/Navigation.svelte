@@ -1,13 +1,24 @@
-<script>
+<script lang="ts">
+	import { page } from '$app/state';
+	import { alternatePath, localize, type Dictionary, type Locale } from '$lib/i18n';
+
+	let { locale, t }: { locale: Locale; t: Dictionary } = $props();
+
 	let scrolled = $state(false);
 	let mobileMenuOpen = $state(false);
 
-	const navItems = [
-		{ label: 'About', href: '#about' },
-		{ label: 'Projects', href: '#projects' },
-		{ label: 'Blog', href: '/blog' },
-		{ label: 'Contact', href: '#contact' }
-	];
+	const sections = ['diagnostics', 'method', 'skills', 'work', 'about'] as const;
+	const navItems = $derived(
+		sections.map((id) => ({ id, label: t.nav[id], href: localize(`/${id}`, locale) }))
+	);
+
+	const otherLocale = $derived<Locale>(locale === 'en' ? 'ja' : 'en');
+	const switchHref = $derived(alternatePath(page.url.pathname, otherLocale));
+
+	function isActive(href: string) {
+		const path = page.url.pathname;
+		return path === href || path.startsWith(`${href}/`);
+	}
 
 	function handleScroll() {
 		scrolled = window.scrollY > 50;
@@ -22,28 +33,51 @@
 	}
 
 	$effect(() => {
-		if (typeof window !== 'undefined') {
-			window.addEventListener('scroll', handleScroll);
-			return () => window.removeEventListener('scroll', handleScroll);
-		}
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
 	});
 </script>
 
-<nav class="nav" class:scrolled>
+<nav class="nav" class:scrolled aria-label={t.nav.menu}>
 	<div class="nav-container">
-		<a href="/" class="logo">
+		<a href={localize('/', locale)} class="logo" aria-label={t.nav.home}>
 			<span class="logo-text">HK</span>
 			<span class="logo-dot"></span>
 		</a>
 
 		<div class="nav-links desktop">
 			{#each navItems as item}
-				<a href={item.href} class="nav-link">{item.label}</a>
+				<a
+					href={item.href}
+					class="nav-link"
+					aria-current={isActive(item.href) ? 'page' : undefined}
+					data-track="nav_clicked"
+					data-track-item={item.id}
+				>
+					{item.label}
+				</a>
 			{/each}
-			<a href="#contact" class="btn btn-primary nav-cta">Let's Talk</a>
+			<a
+				href={switchHref}
+				class="lang-switch"
+				hreflang={otherLocale}
+				lang={otherLocale}
+				aria-label={t.nav.switchLabel}
+				data-sveltekit-noscroll
+				data-track="language_switched"
+				data-track-from={locale}
+				data-track-to={otherLocale}
+			>
+				{t.nav.switch}
+			</a>
 		</div>
 
-		<button class="mobile-toggle" onclick={toggleMobileMenu} aria-label="Toggle menu">
+		<button
+			class="mobile-toggle"
+			onclick={toggleMobileMenu}
+			aria-label={t.nav.menu}
+			aria-expanded={mobileMenuOpen}
+		>
 			<span class="hamburger" class:open={mobileMenuOpen}>
 				<span></span>
 				<span></span>
@@ -59,14 +93,27 @@
 					<a
 						href={item.href}
 						class="mobile-nav-link"
+						aria-current={isActive(item.href) ? 'page' : undefined}
 						onclick={closeMobileMenu}
 						style="animation-delay: {i * 0.1}s"
+						data-track="nav_clicked"
+						data-track-item={item.id}
 					>
 						{item.label}
 					</a>
 				{/each}
-				<a href="#contact" class="btn btn-primary mobile-cta" onclick={closeMobileMenu}>
-					Let's Talk
+				<a
+					href={switchHref}
+					class="lang-switch mobile-lang"
+					hreflang={otherLocale}
+					lang={otherLocale}
+					aria-label={t.nav.switchLabel}
+					onclick={closeMobileMenu}
+					data-track="language_switched"
+					data-track-from={locale}
+					data-track-to={otherLocale}
+				>
+					{t.nav.switch}
 				</a>
 			</div>
 		</div>
@@ -159,9 +206,26 @@
 		width: 100%;
 	}
 
-	.nav-cta {
-		padding: var(--spacing-sm) var(--spacing-lg);
+	.nav-link[aria-current='page'] {
+		color: var(--color-text-primary);
+	}
+
+	.nav-link[aria-current='page']::after {
+		width: 100%;
+	}
+
+	.lang-switch {
+		padding: var(--spacing-xs) var(--spacing-md);
+		border: 1px solid var(--color-border-light);
+		border-radius: var(--radius-full);
+		color: var(--color-text-secondary);
 		font-size: var(--font-size-sm);
+		transition: all var(--transition-fast);
+	}
+
+	.lang-switch:hover {
+		border-color: var(--color-accent);
+		color: var(--color-text-primary);
 	}
 
 	.mobile-toggle {
@@ -229,11 +293,9 @@
 		animation: fadeInUp 0.5s forwards;
 	}
 
-	.mobile-cta {
+	.mobile-lang {
 		margin-top: var(--spacing-lg);
-		opacity: 0;
-		animation: fadeInUp 0.5s forwards;
-		animation-delay: 0.4s;
+		font-size: var(--font-size-base);
 	}
 
 	@media (max-width: 768px) {

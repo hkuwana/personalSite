@@ -1,17 +1,20 @@
-<script>
+<script lang="ts">
+	import { localize, type Dictionary, type Locale } from '$lib/i18n';
+	import { SOCIAL } from '$lib/site';
+
+	let { locale, t }: { locale: Locale; t: Dictionary } = $props();
+
 	const currentYear = new Date().getFullYear();
 
-	const footerLinks = [
-		{ label: 'About', href: '#about' },
-		{ label: 'Projects', href: '#projects' },
-		{ label: 'Blog', href: '/blog' },
-		{ label: 'Contact', href: '#contact' }
-	];
+	const sections = ['diagnostics', 'method', 'skills', 'work', 'about'] as const;
+	const footerLinks = $derived([
+		...sections.map((id) => ({ label: t.nav[id], href: localize(`/${id}`, locale) })),
+		{ label: t.footer.contact, href: localize('/about#contact', locale) }
+	]);
 
 	const socialLinks = [
-		{ name: 'GitHub', url: 'https://github.com/hkuwana' },
-		{ name: 'LinkedIn', url: 'https://linkedin.com/in/hkuwana' },
-		{ name: 'Twitter', url: 'https://twitter.com/hkuwana' }
+		{ name: 'LinkedIn', url: SOCIAL.linkedin, track: 'linkedin_clicked' },
+		{ name: 'GitHub', url: SOCIAL.github, track: undefined }
 	];
 </script>
 
@@ -19,15 +22,15 @@
 	<div class="container">
 		<div class="footer-content">
 			<div class="footer-brand">
-				<a href="/" class="logo">
+				<a href={localize('/', locale)} class="logo" aria-label={t.nav.home}>
 					<span class="logo-text">HK</span>
 					<span class="logo-dot"></span>
 				</a>
-				<p class="tagline">AI-fluent product builder. Shipping since 2018.</p>
+				<p class="tagline">{t.footer.tagline}</p>
 			</div>
 
 			<div class="footer-links">
-				<h4>Quick Links</h4>
+				<h4>{t.nav.menu}</h4>
 				<nav>
 					{#each footerLinks as link}
 						<a href={link.href}>{link.label}</a>
@@ -36,24 +39,24 @@
 			</div>
 
 			<div class="footer-social">
-				<h4>Connect</h4>
+				<h4>{t.footer.connect}</h4>
 				<nav>
 					{#each socialLinks as link}
-						<a href={link.url} target="_blank" rel="noopener noreferrer">{link.name}</a>
+						<a
+							href={link.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							data-track={link.track}
+							data-track-location="footer">{link.name}</a
+						>
 					{/each}
 				</nav>
 			</div>
 		</div>
 
 		<div class="footer-bottom">
-			<p>&copy; {currentYear} Hiroyuki Kuwana. All rights reserved.</p>
-			<p class="built-with">
-				Built with
-				<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="heart">
-					<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-				</svg>
-				using SvelteKit
-			</p>
+			<p>&copy; {currentYear} {t.name}</p>
+			<p class="disclaimer">{t.footer.disclaimer}</p>
 		</div>
 	</div>
 </footer>
@@ -145,15 +148,9 @@
 		color: var(--color-text-muted);
 	}
 
-	.built-with {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-xs);
-	}
-
-	.heart {
-		color: var(--color-error);
-		animation: pulse 1.5s ease-in-out infinite;
+	.disclaimer {
+		max-width: 40ch;
+		text-align: right;
 	}
 
 	@media (max-width: 768px) {
@@ -169,6 +166,10 @@
 		.footer-bottom {
 			flex-direction: column;
 			gap: var(--spacing-md);
+			text-align: center;
+		}
+
+		.disclaimer {
 			text-align: center;
 		}
 	}

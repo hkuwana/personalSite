@@ -7,7 +7,12 @@ const config = {
 	kit: {
 		// Cloudflare Workers with static assets, the same platform otterd.co deploys to.
 		// Config lives in wrangler.jsonc.
-		adapter: adapter()
+		adapter: adapter(),
+		prerender: {
+			entries: ['*', '/ja'],
+			// Until every section in the navigation has a route, a missing page is a warning.
+			handleHttpError: 'warn'
+		}
 	}
 };
 

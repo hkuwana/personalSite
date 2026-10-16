@@ -4,7 +4,10 @@
 	import Projects from '$lib/components/Projects.svelte';
 	import BlogPreview from '$lib/components/BlogPreview.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import { onMount } from 'svelte';
+
+	let { data } = $props();
 
 	// Intersection Observer for scroll animations
 	onMount(() => {
@@ -27,10 +30,7 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Hiroyuki Kuwana | Full Stack Developer</title>
-	<meta name="description" content="Hiroyuki Kuwana - Full Stack Developer & Creative Problem Solver. Building elegant solutions with modern web technologies." />
-</svelte:head>
+<Seo title={data.t.meta.title} description={data.t.meta.description} locale={data.locale} />
 
 <Hero />
 <About />

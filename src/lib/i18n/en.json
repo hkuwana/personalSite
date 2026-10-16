@@ -1,0 +1,25 @@
+{
+	"name": "Hiro Kuwana",
+	"meta": {
+		"title": "Hiro Kuwana | Where AI pays off in a company",
+		"description": "Outside-view diagnostics of listed companies: where AI pays off, what to check first and what to leave alone, built from public filings. By Hiro Kuwana, founder of Otterd."
+	},
+	"nav": {
+		"diagnostics": "Diagnostics",
+		"method": "Method",
+		"skills": "Skills",
+		"work": "Work",
+		"about": "About",
+		"home": "Home",
+		"menu": "Menu",
+		"switch": "日本語",
+		"switchLabel": "Read this page in Japanese"
+	},
+	"footer": {
+		"tagline": "Where AI pays off in a company, worked out from public filings.",
+		"otterd": "Client engagements run through Otterd",
+		"contact": "Contact",
+		"connect": "Connect",
+		"disclaimer": "Diagnostics are opinions built from public sources. Not investment advice."
+	}
+}
